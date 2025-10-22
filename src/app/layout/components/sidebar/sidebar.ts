@@ -1,7 +1,7 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, inject, PLATFORM_ID } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { ISidebarMenuItem } from '../../shared/models/sidebar.model';
+import { ISidebarMenuItem } from '../../../shared/models/sidebar.model';
 
 @Component({
   selector: 'app-sidebar',
