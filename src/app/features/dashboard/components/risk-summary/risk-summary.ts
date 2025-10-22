@@ -15,7 +15,7 @@ import { INode } from '../../../../shared/models/node.model';
 })
 export class RiskSummary {
 
-  isOpen = false;
+  isOpen: boolean = false;
   openPopoverId: string | null = null;
   nodes: INode[] = [
     {

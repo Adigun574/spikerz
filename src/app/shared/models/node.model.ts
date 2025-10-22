@@ -5,5 +5,13 @@ export interface INode {
     iconBackgroundColor: string;
     badgeType?: string;
     iconColor: string;
-    children: any[];
+    children: {
+        id: string;
+        name: string;
+        iconBackgroundColor: string;
+        iconColor: string;
+        ipAddress: string;
+        badgeType: string;
+        type: string;
+      }[];
 }

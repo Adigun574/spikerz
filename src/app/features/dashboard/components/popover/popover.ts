@@ -9,6 +9,4 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class Popover {
 
-  @Input() data: any;
-
 }
