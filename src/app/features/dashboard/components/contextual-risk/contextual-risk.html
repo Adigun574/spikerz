@@ -1,0 +1,28 @@
+<div class="shadow-sm rounded-lg px-7 py-4 h-full">
+  <div class="flex mt-6 h-full justify-between items-center">
+
+    <div>
+      <p class="text-gray-500 font-medium text-lg leading-7 mb-4">
+        Contextual Risk
+      </p>
+
+      <div class="flex flex-col gap-2">
+        @for (risk of risks; track risk.label) {
+        <div class="flex items-center gap-2">
+          <mat-icon class="!text-[10px] relative top-2" [ngClass]="risk.color">
+            circle
+          </mat-icon>
+          <p class="text-base text-[#383875]">
+            <span class="font-bold">{{ risk.value }}</span> {{ risk.label }}
+          </p>
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center text-3xl text-[#656575] font-semibold border-6 rounded-full w-30 h-30"
+      [ngClass]="overallBorderColor">
+      {{ totalCritical }}
+    </div>
+  </div>
+</div>

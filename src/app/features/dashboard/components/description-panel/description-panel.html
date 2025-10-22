@@ -1,0 +1,60 @@
+<div>
+    <h2 class="text-green-600 text-xl font-bold mb-4">Description</h2>
+    <p class="text-gray-700 leading-5 text-xs">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur maxime necessitatibus
+        ullam! Aperiam unde eaque deserunt perspiciatis quos in, tempore asperiores beatae accusantium
+        provident mollitia accusamus enim fuga qui suscipit exercitationem corporis iusto eligendi
+        repellat consectetur ducimus sed vero minima..
+    </p>
+
+    <h3 class="text-green-600 text-xl font-semibold mt-6 mb-2">Extra</h3>
+    <p class="text-gray-700 leading-5 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente doloremque
+        necessitatibus sint et ullam optio cupiditate autem deleniti quaerat aliquid sunt id, ipsam cumque
+        non perferendis quibusdam blanditiis fugiat nulla enim nam numquam repellendus beatae quam unde. Ipsa
+        harum optio dolorem quasi. Iste aut eum laboriosam, aliquid nihil a distinctio ipsam, maxime cum vel
+        quod cupiditate sint alias quo error aliquam debitis ullam, molestiae unde accusamus perferendis.
+    </p>
+    
+    <table class="w-full mt-6 mb-4 text-sm border-t border-gray-200 border-b">
+        <tbody>
+            @for(row of tableData; track row.value){
+                <tr>
+                    <td class="py-2 font-medium text-gray-600">{{ row.label }}</td>
+                    <td class="py-2 text-gray-700">{{ row.value }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+    <p class="font-medium text-gray-600 mb-3">Lorem Ipsum Dolor Sit</p>
+
+    @for(item of items; track item.title; let i = $index){
+        <div class="borde rounded-lg p-4 cursor-pointer shadow-sm mb-4" (click)="toggleItem(i)">
+            <p class="font-medium text-gray-600 mb-3">{{item.title}}</p>
+            <div class="flex justify-between items-center bg-gray-50 rounded-lg py-2 px-4">
+                <div class="flex gap-2 items-center w-1/2">
+                    <div class="bg-[#D7EAFF] rounded-full flex justify-center items-center w-13 h-13">
+                        <mat-icon class="!text-[14px !text-[#1774DE]">storage</mat-icon>
+                    </div>
+                    <div>
+                        <p class="text-gray-900 text-sm font-semibold">{{item.subtitle}}</p>
+                        <p class="text-gray-500 text-xs font-medium">{{item.subdetail}}</p>
+                    </div>
+                </div>
+                <div class="border-l border-gray-400 pl-4 w-1/2">
+                    <p class="text-gray-900 text-xs">{{item.detail}}</p>
+                </div>
+            </div>
+    
+            <div
+                class="overflow-hidden transition-all duration-500 ease-in-out mt-3"
+                [style.maxHeight]="item.open ? '200px' : '0px'"
+                [style.opacity]="item.open ? '1' : '0'"
+                [style.marginTop]="item.open ? '12px' : '0'"
+            >
+                <p class="text-gray-700">{{item.description}}</p>
+            </div>
+        </div>
+    }
+    
+</div>
