@@ -1,16 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { AccordionCard } from '../../../../shared/ui/accordion-card/accordion-card';
+import { IAccordiongPanelData, ITableData } from '../../../../shared/models/asset.model';
 
 @Component({
   selector: 'app-description-panel',
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, AccordionCard],
   templateUrl: './description-panel.html',
   styleUrl: './description-panel.scss'
 })
 export class DescriptionPanel {
 
-  tableData = [
+  tableData: ITableData[] = [
     { label: 'Lorem Ipsum Dolor', value: '10/19/2017' },
     { label: 'Lorem Ipsum Dolor', value: 'Ut' },
     { label: 'Lorem Ipsum Dolor', value: 'Eros' },
@@ -20,7 +22,7 @@ export class DescriptionPanel {
     { label: 'Lorem Ipsum Dolor', value: 'Lorem Ipsum Dolor' }
   ];
 
-  items = [
+  items: IAccordiongPanelData[] = [
     {
       title: 'Lorem P',
       subtitle: 'Server',

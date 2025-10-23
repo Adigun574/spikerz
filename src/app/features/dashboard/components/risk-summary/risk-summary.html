@@ -2,97 +2,34 @@
 
   <div class="flex justify-between items-center overflow-x-scroll pt-4">
     @for (node of nodes; track node.id; let i = $index) {
-    <div class="flex flex-col items-center gap-1 cursor-pointer" (click)="onNodeClick($event, node.id)" cdkOverlayOrigin
-      #parentTrigger="cdkOverlayOrigin">
-      <div class="rounded-full flex justify-center items-center w-10 h-10 relative"
-        [ngStyle]="{ 'background-color': node.iconBackgroundColor }">
-        <mat-icon [ngStyle]="{ 'color': node.iconColor }">storage</mat-icon>
-        @if(node.badgeType){
-        <mat-icon class="!text-purple-700 absolute -top-2 -right-2">account_circle</mat-icon>
+        <app-graph-node [node]="node" [index]="i"></app-graph-node>
+
+        @if (i < nodes.length - 1) {
+          <div class="flex-1 h-[2px] bg-gray-300 mx-4 relative">
+            <div class="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 
+                          border-t-[5px] border-t-transparent 
+                          border-l-[8px] border-l-gray-400 
+                          border-b-[5px] border-b-transparent">
+            </div>
+          </div>
         }
-      </div>
-      <p class="text-gray-700 font-semibold text-sm">{{ node.name }}</p>
-    </div>
 
-    @if (i < nodes.length - 1) { <div class="flex-1 h-[2px] bg-gray-300 mx-4 relative">
-      <div class="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 
-                      border-t-[5px] border-t-transparent 
-                      border-l-[8px] border-l-gray-400 
-                      border-b-[5px] border-b-transparent">
-      </div>
-  </div>
-  }
-
-  @if(node.children.length > 0){
-  <img src="/assets/images/arrow.png" width="100px">
-  }
-
-  <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="parentTrigger"
-    [cdkConnectedOverlayOpen]="openPopoverId === node.id" (backdropClick)="closePopover()" (detach)="closePopover()"
-    [cdkConnectedOverlayPositions]="[
-          { originX: 'center', originY: 'bottom', overlayX: 'center', overlayY: 'top', offsetY: 8 }
-        ]">
-    @if(node.type === 'vulnerability'){
-    <app-vulnerabilities-drawer></app-vulnerabilities-drawer>
-    }
-    @else if(node.type === 'fix'){
-    <app-fix-drawer></app-fix-drawer>
-    }
-    @else if(node.type === 'action'){
-    <app-action-drawer></app-action-drawer>
-    }
-  </ng-template>
-
-  <div class="flex flex-col gap-4">
-    @if (node.children.length > 0) {
-    @for (child of node.children; track child.id) {
-    <div class="flex flex-col items-center gap-1 cursor-pointer" (click)="onNodeClick($event, child.id)"
-      cdkOverlayOrigin #childTrigger="cdkOverlayOrigin">
-      <div class="bg-[#D7EAFF] rounded-full flex justify-center items-center w-10 h-10 relative">
-        <mat-icon class="!text-[#1774DE]">storage</mat-icon>
-        @if(child.badgeType){
-        <mat-icon class="!text-red-700 absolute -top-2 -right-2">gpp_bad</mat-icon>
-        }
-      </div>
-      <p class="text-gray-700 font-semibold text-sm">{{ child.name }}</p>
-      <p class="text-gray-500 text-xs">{{ child.ipAddress }}</p>
-    </div>
-
-    <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="childTrigger"
-      [cdkConnectedOverlayOpen]="openPopoverId === child.id" (backdropClick)="closePopover()" (detach)="closePopover()"
-      [cdkConnectedOverlayPositions]="[
-                { originX: 'center', originY: 'bottom', overlayX: 'center', overlayY: 'top', offsetY: 8 }
-              ]">
-      @if(child.type === 'vulnerability'){
-      <app-vulnerabilities-drawer></app-vulnerabilities-drawer>
-      }
-      @else if(child.type === 'fix'){
-      <app-fix-drawer></app-fix-drawer>
-      }
-      @else if(child.type === 'action'){
-      <app-action-drawer></app-action-drawer>
-      }
-    </ng-template>
-    }
-    }
-
-  </div>
   }
 
 </div>
 
-<div class="flex sm:gap-8 gap-2 border-t border-gray-200 pt-2 mt-4">
-  <div class="flex sm:gap-2 gap-1 items-center">
-    <mat-icon class="!text-red-700">gpp_bad</mat-icon>
-    <p class="font-bold sm:text-base text-sm text-red-700">Lorem</p>
+  <div class="flex sm:gap-8 gap-2 border-t border-gray-200 pt-2 mt-4">
+    <div class="flex sm:gap-2 gap-1 items-center">
+      <mat-icon class="!text-red-700">gpp_bad</mat-icon>
+      <p class="font-bold sm:text-base text-sm text-red-700">Lorem</p>
+    </div>
+    <div class="flex sm:gap-2 gap-1 items-center">
+      <mat-icon style="color: #FF9500">gpp_bad</mat-icon>
+      <p class="font-bold sm:text-base text-sm" style="color: #FF9500">Lorem</p>
+    </div>
+    <div class="flex sm:gap-2 gap-1 items-center">
+      <mat-icon class="!text-green-700">safety_check</mat-icon>
+      <p class="font-bold sm:text-base text-sm text-green-700">Lorem</p>
+    </div>
   </div>
-  <div class="flex sm:gap-2 gap-1 items-center">
-    <mat-icon style="color: #FF9500">gpp_bad</mat-icon>
-    <p class="font-bold sm:text-base text-sm" style="color: #FF9500">Lorem</p>
-  </div>
-  <div class="flex sm:gap-2 gap-1 items-center">
-    <mat-icon class="!text-green-700">safety_check</mat-icon>
-    <p class="font-bold sm:text-base text-sm text-green-700">Lorem</p>
-  </div>
-</div>
 </div>

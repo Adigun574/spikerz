@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { OverlayModule, CdkConnectedOverlay, CdkOverlayOrigin } from '@angular/cdk/overlay';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { VulnerabilitiesDrawer } from '../vulnerabilities-drawer/vulnerabilities-drawer';
-import { FixDrawer } from '../fix-drawer/fix-drawer';
-import { ActionDrawer } from '../action-drawer/action-drawer';
 import { INode } from '../../../../shared/models/node.model';
+import { GraphNode } from '../../../../shared/ui/graph-node/graph-node';
 
 @Component({
   selector: 'app-risk-summary',
-  imports: [CommonModule, OverlayModule, CdkConnectedOverlay, CdkOverlayOrigin, MatIconModule, VulnerabilitiesDrawer, FixDrawer, ActionDrawer],
+  imports: [CommonModule, MatIconModule, GraphNode],
   templateUrl: './risk-summary.html',
   styleUrl: './risk-summary.scss'
 })

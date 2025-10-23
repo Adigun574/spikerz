@@ -52,8 +52,10 @@ export class Sidebar {
     }
   ];
 
-  isCollapsed = false;
-  isHovered = false;
+  isCollapsed: boolean = false;
+  isHovered: boolean = false;
+
+  isHiddenOnMobile: boolean = false;
 
   ngOnInit(): void {
     this.checkScreenWidth();
@@ -66,7 +68,11 @@ export class Sidebar {
 
   private checkScreenWidth() {
     if (isPlatformBrowser(this.platformId)) {
-      this.isCollapsed = window.innerWidth < 1024;
+      const width = window.innerWidth;
+
+      this.isCollapsed = width < 1024;
+      this.isHiddenOnMobile = width < 760; 
+
     }
   }
 
