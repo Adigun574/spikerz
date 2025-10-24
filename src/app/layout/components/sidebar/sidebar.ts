@@ -78,6 +78,11 @@ export class Sidebar {
 
   toggleSidebar() {
     this.isCollapsed = !this.isCollapsed;
+
+    const width = window.innerWidth;
+    if(width < 760){
+      this.isHiddenOnMobile = !this.isHiddenOnMobile
+    }
   }
 
 }

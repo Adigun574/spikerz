@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { INode } from '../../../../shared/models/node.model';
@@ -61,17 +61,20 @@ export class RiskSummary {
     }
   ];
 
-  onNodeClick(event: MouseEvent, id: string) {
-    event.stopPropagation();
+  onNodeClick(id: string) {
     this.openPopoverId = this.openPopoverId === id ? null : id;
   }
-
-  keepPopoverOpen(id: string) {
-    this.openPopoverId = id;
-  }
-
+  
   closePopover() {
     this.openPopoverId = null;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.graph-node') && !target.closest('.popover-content')) {
+      this.closePopover();
+    }
   }
 
 }

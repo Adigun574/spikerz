@@ -1,3 +1,16 @@
+@if(isHiddenOnMobile){
+    <button
+      mat-button
+      type="button"
+      (click)="toggleSidebar()"
+      class="absolute top-2 left-2 text-gray-500 transition-opacity duration-300 cursor-pointer bg-green-800 flex justify-center items-center text-white rounded-full border-2 border-gray-50 shadow-sm"
+    >
+      <mat-icon class="text-white">
+        {{ isCollapsed ? 'chevron_right' : 'chevron_left' }}
+      </mat-icon>
+    </button>
+}
+@else{
 <div
   class="relative w-60 h-screen bg-[#FFF] flex flex-col items-center py-6 shadow-sm transition-all duration-300"
   [class.w-[90px]]="isCollapsed"
@@ -67,3 +80,4 @@
     </div>
   </div>
 </div>
+}

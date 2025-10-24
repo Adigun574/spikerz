@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { INode } from '../../models/node.model';
 import { VulnerabilitiesDrawer } from '../../../features/dashboard/components/vulnerabilities-drawer/vulnerabilities-drawer';
 import { FixDrawer } from '../../../features/dashboard/components/fix-drawer/fix-drawer';
@@ -15,19 +15,20 @@ import { CommonModule } from '@angular/common';
 })
 export class GraphNode {
 
-  
-  @Input({required: true}) node!: INode
-  @Input({required: true}) index!: number
-  
-  openPopoverId: string | null = null;
+  @Input({ required: true }) node!: INode;
+  @Input({ required: true }) index!: number;
+  @Input() openPopoverId!: string | null;
+
+  @Output() nodeClick = new EventEmitter<string>();
+  @Output() closePopoverEvent = new EventEmitter<void>();
 
   onNodeClick(event: MouseEvent, id: string) {
     event.stopPropagation();
-    this.openPopoverId = this.openPopoverId === id ? null : id;
+    this.nodeClick.emit(id);
   }
 
   closePopover() {
-    this.openPopoverId = null;
+    this.closePopoverEvent.emit();
   }
-
+  
 }
