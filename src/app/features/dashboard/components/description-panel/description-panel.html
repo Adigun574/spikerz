@@ -20,7 +20,13 @@
             @for(row of tableData; track row.value){
                 <tr>
                     <td class="py-2 font-medium text-gray-600">{{ row.label }}</td>
-                    <td class="py-2 text-gray-700">{{ row.value }}</td>
+                    <td class="py-2 text-gray-700 flex">
+                        <ng-container *ngIf="row.value === 'Yes'; else textValue">
+                            <mat-icon class="!text-green-600 !text-[18px]">check</mat-icon>
+                            Yes
+                          </ng-container>
+                        <ng-template #textValue>{{ row.value }}</ng-template>
+                    </td>
                 </tr>
             }
         </tbody>
