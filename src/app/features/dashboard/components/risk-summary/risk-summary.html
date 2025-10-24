@@ -1,6 +1,6 @@
 <div class="bg-gray-50 rounded-xl py-2 px-1 sm:px-4">
 
-  <div class="flex justify-between items-center overflow-x-scroll pt-4">
+  <div class="flex justify-between items-center overflow-x-scroll pt-4 hide-scrollbar">
     @for (node of nodes; track node.id; let i = $index) {
           <app-graph-node 
             [node]="node" 
