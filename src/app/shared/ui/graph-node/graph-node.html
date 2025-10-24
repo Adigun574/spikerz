@@ -14,11 +14,16 @@
 <img src="/assets/images/arrow.png" width="100px">
 }
 
-<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="parentTrigger"
-    [cdkConnectedOverlayOpen]="openPopoverId === node.id" (backdropClick)="closePopover()" (detach)="closePopover()"
-    [cdkConnectedOverlayPositions]="[
-    { originX: 'center', originY: 'bottom', overlayX: 'center', overlayY: 'top', offsetY: 8 }
-  ]">
+<ng-template 
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="parentTrigger"
+    [cdkConnectedOverlayOpen]="openPopoverId === node.id"
+    (backdropClick)="closePopover()"
+    (detach)="closePopover()"
+    [cdkConnectedOverlayPositions]="positions"
+    [cdkConnectedOverlayFlexibleDimensions]="true"
+    [cdkConnectedOverlayPush]="true"
+>
     @if(node.type === 'vulnerability'){
     <app-vulnerabilities-drawer></app-vulnerabilities-drawer>
     }
@@ -45,11 +50,16 @@
         <p class="text-gray-500 text-xs">{{ child.ipAddress }}</p>
     </div>
 
-    <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="childTrigger"
-        [cdkConnectedOverlayOpen]="openPopoverId === child.id" (backdropClick)="closePopover()"
-        (detach)="closePopover()" [cdkConnectedOverlayPositions]="[
-          { originX: 'center', originY: 'bottom', overlayX: 'center', overlayY: 'top', offsetY: 8 }
-        ]">
+    <ng-template 
+        cdkConnectedOverlay
+        [cdkConnectedOverlayOrigin]="parentTrigger"
+        [cdkConnectedOverlayOpen]="openPopoverId === child.id"
+        (backdropClick)="closePopover()"
+        (detach)="closePopover()"
+        [cdkConnectedOverlayPositions]="positions"
+        [cdkConnectedOverlayFlexibleDimensions]="true"
+        [cdkConnectedOverlayPush]="true"
+    >
         @if(child.type === 'vulnerability'){
         <app-vulnerabilities-drawer></app-vulnerabilities-drawer>
         }
