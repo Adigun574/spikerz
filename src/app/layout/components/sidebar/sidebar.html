@@ -30,6 +30,11 @@
     </button>
 
     <div class="flex flex-col gap-2 w-full px-4">
+      @if (isCollapsed) {
+        <div class="relative left-3">
+          <img src="/assets/images/logo.jpg" height="30px" width="30px" />
+        </div>
+      }
       @for (menu of menuItems; track menu.url; let i = $index) {
         <button
           mat-button
