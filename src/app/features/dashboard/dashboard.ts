@@ -9,4 +9,4 @@ import { SummaryPanel } from './components/summary-panel/summary-panel';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
-export class Dashboard { }
+export class Dashboard {}

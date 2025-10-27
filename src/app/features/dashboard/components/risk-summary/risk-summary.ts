@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { INode } from '../../../../shared/models/node.model';
@@ -66,13 +66,5 @@ export class RiskSummary {
 
   closePopover() {
     this.openPopoverId = null;
-  }
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    if (!target.closest('.graph-node') && !target.closest('.popover-content')) {
-      this.closePopover();
-    }
   }
 }

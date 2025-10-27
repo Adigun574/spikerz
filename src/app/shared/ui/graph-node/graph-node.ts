@@ -66,12 +66,15 @@ export class GraphNode {
     },
   ];
 
-  onNodeClick(event: MouseEvent, id: string) {
-    event.stopPropagation();
+  closePopover() {
+    this.closePopoverEvent.emit();
+  }
+
+  onMouseEnter(id: string) {
     this.nodeClick.emit(id);
   }
 
-  closePopover() {
+  onMouseLeave() {
     this.closePopoverEvent.emit();
   }
 }
