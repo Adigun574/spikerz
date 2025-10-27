@@ -21,7 +21,50 @@ export class AssetList {
       ipAddress: '192.168.1.2',
       level: 'Critical',
     },
+    {
+      name: 'Loremipsumdolorsit003',
+      ipAddress: '192.168.1.3',
+      level: 'Medium',
+    },
+    {
+      name: 'Loremipsumdolorsit004',
+      ipAddress: '192.168.1.4',
+      level: 'High',
+    },
   ];
+
+  itemsPerPage: number = 2;
+  currentPage: number = 1;
+
+  get totalPages(): number {
+    return Math.ceil(this.assets.length / this.itemsPerPage);
+  }
+
+  get paginatedAssets(): IAsset[] {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    return this.assets.slice(start, start + this.itemsPerPage);
+  }
+
+  get startItemIndex(): number {
+    return (this.currentPage - 1) * this.itemsPerPage;
+  }
+
+  get endItemIndex(): number {
+    const end = this.currentPage * this.itemsPerPage;
+    return end > this.assets.length ? this.assets.length : end;
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
 
   trackByIp(_: number, asset: IAsset): string {
     return asset.ipAddress;
