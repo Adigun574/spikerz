@@ -1,6 +1,5 @@
 export interface ISidebarMenuItem {
-    name: string;
-    icon: string;
-    url: string;
+  name: string;
+  icon: string;
+  url: string;
 }
-  

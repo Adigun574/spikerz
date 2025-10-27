@@ -6,17 +6,15 @@ import { IAccordiongPanelData } from '../../models/asset.model';
   selector: 'app-accordion-card',
   imports: [MatIconModule],
   templateUrl: './accordion-card.html',
-  styleUrl: './accordion-card.scss'
+  styleUrl: './accordion-card.scss',
 })
 export class AccordionCard {
+  @Input({ required: true }) item!: IAccordiongPanelData;
+  @Input({ required: true }) index!: number;
 
-  @Input({required: true}) item!: IAccordiongPanelData
-  @Input({required: true}) index!: number
-
-  @Output() toggleVisibility = new EventEmitter()
+  @Output() toggleVisibility = new EventEmitter();
 
   toggleItem(index: number): void {
-    this.toggleVisibility.emit(index)
+    this.toggleVisibility.emit(index);
   }
-
 }

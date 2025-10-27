@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-icon-badge',
   imports: [],
   templateUrl: './icon-badge.html',
-  styleUrl: './icon-badge.scss'
+  styleUrl: './icon-badge.scss',
 })
-export class IconBadge {
-
-}
+export class IconBadge {}

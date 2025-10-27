@@ -7,8 +7,6 @@ import { ContextualRisk } from '../contextual-risk/contextual-risk';
   selector: 'app-summary-panel',
   imports: [RiskSummary, AssetList, ContextualRisk],
   templateUrl: './summary-panel.html',
-  styleUrl: './summary-panel.scss'
+  styleUrl: './summary-panel.scss',
 })
-export class SummaryPanel {
-
-}
+export class SummaryPanel {}

@@ -8,10 +8,9 @@ import { GraphNode } from '../../../../shared/ui/graph-node/graph-node';
   selector: 'app-risk-summary',
   imports: [CommonModule, MatIconModule, GraphNode],
   templateUrl: './risk-summary.html',
-  styleUrl: './risk-summary.scss'
+  styleUrl: './risk-summary.scss',
 })
 export class RiskSummary {
-
   isOpen: boolean = false;
   openPopoverId: string | null = null;
   nodes: INode[] = [
@@ -22,7 +21,7 @@ export class RiskSummary {
       iconBackgroundColor: '#FFF1F0',
       badgeType: 'user-group',
       iconColor: '#E5372B',
-      children: []
+      children: [],
     },
     {
       id: '2',
@@ -30,7 +29,7 @@ export class RiskSummary {
       type: 'fix',
       iconBackgroundColor: '#D7EAFF',
       iconColor: '#1774DE',
-      children: []
+      children: [],
     },
     {
       id: '3',
@@ -55,16 +54,16 @@ export class RiskSummary {
           iconColor: '#1774DE',
           ipAddress: '192.168.1.2',
           badgeType: 'shield-off',
-          type: 'action'
-        }
-      ]
-    }
+          type: 'action',
+        },
+      ],
+    },
   ];
 
   onNodeClick(id: string) {
     this.openPopoverId = this.openPopoverId === id ? null : id;
   }
-  
+
   closePopover() {
     this.openPopoverId = null;
   }
@@ -76,5 +75,4 @@ export class RiskSummary {
       this.closePopover();
     }
   }
-
 }

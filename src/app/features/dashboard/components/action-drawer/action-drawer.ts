@@ -5,8 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-action-drawer',
   imports: [MatIconModule],
   templateUrl: './action-drawer.html',
-  styleUrl: './action-drawer.scss'
+  styleUrl: './action-drawer.scss',
 })
-export class ActionDrawer {
-
-}
+export class ActionDrawer {}

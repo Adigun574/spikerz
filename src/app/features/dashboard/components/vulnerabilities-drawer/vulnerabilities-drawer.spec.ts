@@ -8,9 +8,8 @@ describe('VulnerabilitiesDrawer', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VulnerabilitiesDrawer]
-    })
-    .compileComponents();
+      imports: [VulnerabilitiesDrawer],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(VulnerabilitiesDrawer);
     component = fixture.componentInstance;

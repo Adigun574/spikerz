@@ -1,41 +1,46 @@
 <div>
-    <h2 class="text-green-600 text-xl font-bold mb-4">Description</h2>
-    <p class="text-gray-700 leading-5 text-xs">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur maxime necessitatibus
-        ullam! Aperiam unde eaque deserunt perspiciatis quos in, tempore asperiores beatae accusantium
-        provident mollitia accusamus enim fuga qui suscipit exercitationem corporis iusto eligendi
-        repellat consectetur ducimus sed vero minima..
-    </p>
+  <h2 class="text-green-600 text-xl font-bold mb-4">Description</h2>
+  <p class="text-gray-700 leading-5 text-xs">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur maxime necessitatibus
+    ullam! Aperiam unde eaque deserunt perspiciatis quos in, tempore asperiores beatae accusantium
+    provident mollitia accusamus enim fuga qui suscipit exercitationem corporis iusto eligendi
+    repellat consectetur ducimus sed vero minima..
+  </p>
 
-    <h3 class="text-green-600 text-xl font-semibold mt-6 mb-2">Extra</h3>
-    <p class="text-gray-700 leading-5 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente doloremque
-        necessitatibus sint et ullam optio cupiditate autem deleniti quaerat aliquid sunt id, ipsam cumque
-        non perferendis quibusdam blanditiis fugiat nulla enim nam numquam repellendus beatae quam unde. Ipsa
-        harum optio dolorem quasi. Iste aut eum laboriosam, aliquid nihil a distinctio ipsam, maxime cum vel
-        quod cupiditate sint alias quo error aliquam debitis ullam, molestiae unde accusamus perferendis.
-    </p>
-    
-    <table class="w-full mt-6 mb-4 text-sm border-t border-gray-200 border-b">
-        <tbody>
-            @for(row of tableData; track row.value){
-                <tr>
-                    <td class="py-2 font-medium text-gray-600">{{ row.label }}</td>
-                    <td class="py-2 text-gray-700 flex">
-                        <ng-container *ngIf="row.value === 'Yes'; else textValue">
-                            <mat-icon class="!text-green-600 !text-[18px]">check</mat-icon>
-                            Yes
-                          </ng-container>
-                        <ng-template #textValue>{{ row.value }}</ng-template>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    
-    <p class="font-medium text-gray-600 mb-3">Lorem Ipsum Dolor Sit</p>
+  <h3 class="text-green-600 text-xl font-semibold mt-6 mb-2">Extra</h3>
+  <p class="text-gray-700 leading-5 text-xs">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente doloremque necessitatibus sint
+    et ullam optio cupiditate autem deleniti quaerat aliquid sunt id, ipsam cumque non perferendis
+    quibusdam blanditiis fugiat nulla enim nam numquam repellendus beatae quam unde. Ipsa harum
+    optio dolorem quasi. Iste aut eum laboriosam, aliquid nihil a distinctio ipsam, maxime cum vel
+    quod cupiditate sint alias quo error aliquam debitis ullam, molestiae unde accusamus
+    perferendis.
+  </p>
 
-    @for(item of items; track item.title; let i = $index){
-        <app-accordion-card [item]="item" [index]="i" (toggleVisibility)="toggleItem($event)"></app-accordion-card>
-    }
-    
+  <table class="w-full mt-6 mb-4 text-sm border-t border-gray-200 border-b">
+    <tbody>
+      @for (row of tableData; track row.value) {
+        <tr>
+          <td class="py-2 font-medium text-gray-600">{{ row.label }}</td>
+          <td class="py-2 text-gray-700 flex">
+            <ng-container *ngIf="row.value === 'Yes'; else textValue">
+              <mat-icon class="!text-green-600 !text-[18px]">check</mat-icon>
+              Yes
+            </ng-container>
+            <ng-template #textValue>{{ row.value }}</ng-template>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <p class="font-medium text-gray-600 mb-3">Lorem Ipsum Dolor Sit</p>
+
+  @for (item of items; track item.title; let i = $index) {
+    <app-accordion-card
+      [item]="item"
+      [index]="i"
+      (toggleVisibility)="toggleItem($event)"
+    ></app-accordion-card>
+  }
 </div>

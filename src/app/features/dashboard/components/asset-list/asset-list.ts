@@ -7,22 +7,21 @@ import { CommonModule } from '@angular/common';
   selector: 'app-asset-list',
   imports: [CommonModule, MatIconModule],
   templateUrl: './asset-list.html',
-  styleUrl: './asset-list.scss'
+  styleUrl: './asset-list.scss',
 })
 export class AssetList {
-
   assets: IAsset[] = [
     {
-      name: "Loremipsumdolorsit",
-      ipAddress: "192.168.1.1",
-      level: "Critical"
+      name: 'Loremipsumdolorsit',
+      ipAddress: '192.168.1.1',
+      level: 'Critical',
     },
     {
-      name: "Loremipsumdolorsit002",
-      ipAddress: "192.168.1.2",
-      level: "Critical"
-    }
-  ]
+      name: 'Loremipsumdolorsit002',
+      ipAddress: '192.168.1.2',
+      level: 'Critical',
+    },
+  ];
 
   trackByIp(_: number, asset: IAsset): string {
     return asset.ipAddress;
@@ -37,5 +36,4 @@ export class AssetList {
     };
     return map[level] ?? 'bg-gray-100 text-gray-700';
   }
-
 }

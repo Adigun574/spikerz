@@ -5,8 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-vulnerabilities-drawer',
   imports: [MatIconModule],
   templateUrl: './vulnerabilities-drawer.html',
-  styleUrl: './vulnerabilities-drawer.scss'
+  styleUrl: './vulnerabilities-drawer.scss',
 })
-export class VulnerabilitiesDrawer {
-
-}
+export class VulnerabilitiesDrawer {}

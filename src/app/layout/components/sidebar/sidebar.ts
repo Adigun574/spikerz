@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, HostListener, inject, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ISidebarMenuItem } from '../../../shared/models/sidebar.model';
 
@@ -8,48 +8,47 @@ import { ISidebarMenuItem } from '../../../shared/models/sidebar.model';
   standalone: true,
   imports: [CommonModule, MatIconModule],
   templateUrl: './sidebar.html',
-  styleUrl: './sidebar.scss'
+  styleUrl: './sidebar.scss',
 })
-export class Sidebar {
-
-  platformId = inject(PLATFORM_ID)
+export class Sidebar implements OnInit {
+  platformId = inject(PLATFORM_ID);
 
   menuItems: ISidebarMenuItem[] = [
     {
       name: 'Lorem',
       icon: 'grid_view',
-      url: 'lorem1'
+      url: 'lorem1',
     },
     {
       name: 'Lorem',
       icon: 'warning',
-      url: 'lorem2'
+      url: 'lorem2',
     },
     {
       name: 'Lorem',
       icon: 'grid_view',
-      url: 'lorem3'
+      url: 'lorem3',
     },
     {
       name: 'Lorem',
       icon: 'warning',
-      url: 'lorem4'
+      url: 'lorem4',
     },
     {
       name: 'Lorem',
       icon: 'grid_view',
-      url: 'lorem5'
+      url: 'lorem5',
     },
     {
       name: 'Lorem',
       icon: 'warning',
-      url: 'lorem6'
+      url: 'lorem6',
     },
     {
       name: 'Lorem',
       icon: 'grid_view',
-      url: 'lorem7'
-    }
+      url: 'lorem7',
+    },
   ];
 
   isCollapsed: boolean = false;
@@ -71,8 +70,7 @@ export class Sidebar {
       const width = window.innerWidth;
 
       this.isCollapsed = width < 1024;
-      this.isHiddenOnMobile = width < 760; 
-
+      this.isHiddenOnMobile = width < 760;
     }
   }
 
@@ -80,9 +78,8 @@ export class Sidebar {
     this.isCollapsed = !this.isCollapsed;
 
     const width = window.innerWidth;
-    if(width < 760){
-      this.isHiddenOnMobile = !this.isHiddenOnMobile
+    if (width < 760) {
+      this.isHiddenOnMobile = !this.isHiddenOnMobile;
     }
   }
-
 }

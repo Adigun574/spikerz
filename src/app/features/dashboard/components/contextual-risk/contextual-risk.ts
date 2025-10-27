@@ -8,7 +8,7 @@ import { IRiskLevel } from '../../../../shared/models/risklevel';
   standalone: true,
   imports: [CommonModule, MatIconModule],
   templateUrl: './contextual-risk.html',
-  styleUrls: ['./contextual-risk.scss']
+  styleUrls: ['./contextual-risk.scss'],
 })
 export class ContextualRisk {
   risks: IRiskLevel[] = [
@@ -19,7 +19,7 @@ export class ContextualRisk {
   ];
 
   get totalCritical(): number {
-    return this.risks.find(r => r.label === 'Critical')?.value ?? 0;
+    return this.risks.find((r) => r.label === 'Critical')?.value ?? 0;
   }
 
   get overallBorderColor(): string {

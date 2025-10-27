@@ -5,8 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-fix-drawer',
   imports: [MatIconModule],
   templateUrl: './fix-drawer.html',
-  styleUrl: './fix-drawer.scss'
+  styleUrl: './fix-drawer.scss',
 })
-export class FixDrawer {
-
-}
+export class FixDrawer {}

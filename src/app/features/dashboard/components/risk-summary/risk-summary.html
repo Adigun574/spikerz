@@ -1,28 +1,23 @@
 <div class="bg-gray-50 rounded-xl py-2 px-1 sm:px-4">
-
   <div class="flex justify-between items-center overflow-x-scroll pt-4 hide-scrollbar">
     @for (node of nodes; track node.id; let i = $index) {
-          <app-graph-node 
-            [node]="node" 
-            [index]="i"
-            [openPopoverId]="openPopoverId"
-            (nodeClick)="onNodeClick($event)"
-            (closePopoverEvent)="closePopover()"
-          >
-          </app-graph-node>
+      <app-graph-node
+        [node]="node"
+        [index]="i"
+        [openPopoverId]="openPopoverId"
+        (nodeClick)="onNodeClick($event)"
+        (closePopoverEvent)="closePopover()"
+      >
+      </app-graph-node>
 
-          @if (i < nodes.length - 1) {
-            <div class="flex-1 h-[2px] bg-gray-300 mx-4 relative">
-              <div class="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 
-                            border-t-[5px] border-t-transparent 
-                            border-l-[8px] border-l-gray-400 
-                            border-b-[5px] border-b-transparent">
-              </div>
-            </div>
-          }
-
+      @if (i < nodes.length - 1) {
+        <div class="flex-1 h-[2px] bg-gray-300 mx-4 relative">
+          <div
+            class="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-gray-400 border-b-[5px] border-b-transparent"
+          ></div>
+        </div>
+      }
     }
-
   </div>
 
   <div class="flex sm:gap-8 gap-2 border-t border-gray-200 pt-2 mt-4">
@@ -31,8 +26,8 @@
       <p class="font-bold sm:text-base text-sm text-red-700">Lorem</p>
     </div>
     <div class="flex sm:gap-2 gap-1 items-center">
-      <mat-icon style="color: #FF9500">gpp_bad</mat-icon>
-      <p class="font-bold sm:text-base text-sm" style="color: #FF9500">Lorem</p>
+      <mat-icon style="color: #ff9500">gpp_bad</mat-icon>
+      <p class="font-bold sm:text-base text-sm" style="color: #ff9500">Lorem</p>
     </div>
     <div class="flex sm:gap-2 gap-1 items-center">
       <mat-icon class="!text-green-700">safety_check</mat-icon>
